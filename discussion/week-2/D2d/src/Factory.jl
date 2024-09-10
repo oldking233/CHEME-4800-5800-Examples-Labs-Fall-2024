@@ -23,7 +23,8 @@ function build(modeltype::Type{MyFibonacciSequenceModel}, data::NamedTuple)
 
     # check: is the value of n passed in by the user legit? n>=2
     # TODO: check if n is greater than or equal to 2. If not, throw a DomainError
-
+if n<2
+    throw(DomainError(n,"n must be greater than or equal to 2"))
     # build and populate the model -
     model = modeltype(); # what is going on here?
     model.n = n;
